@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&lt;/salt&gt; :: ToDo</title>
+</head>
+<body>
+  <h1 class="todo__header__title">Register new ToDo</h1>
+  <p class="todo__header__subtitle">Created by: Tetris</p>
+  <section class="todo__input-container">
+    <form class="todo__input">
+      <input data-testid="txtTodoItemTitle" type="title" class="todo__title" placeholder="What do you want ToDo?"/>
+      <input class="todo__description" type="text" placeholder="... Description of ToDo ..."/>
+      <button data-testid="btnAddTodo" type="submit" class="todo__btn-submit">Add ToDo</button>
+    </form>
+  </section>
+  <section data-testid="todoList" class="todos todo__list">
+  </section>
+</body>
+</html>

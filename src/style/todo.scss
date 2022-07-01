@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Shrikhand&display=swap');
+
+$base: #50064b;
+$base-darker: #350431;
+$base-lighter: #5c0d57;
+$white: #ffeec7;
+$font: #ffd063;
+$completed: #bbd8cc;
+$completed-transparent: #bbd8ccc8;
+$delete: #d8bbca;
+$shadow: #2e032cc8;
+$glow: #fff6e194;
+$glow-color: #ff0059a2;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: $font;
+}
+
+body {
+  background-color: $base;
+}
+
+.todo__header__title {
+  display: flex;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  justify-content: center;
+  text-align: center;
+  -webkit-animation: glow-min 1s ease-in-out infinite alternate;
+  -moz-animation: glow-min 1s ease-in-out infinite alternate;
+  animation: glow-min 1s ease-in-out infinite alternate;
+}
+
+.todo__header__subtitle {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  text-align: center;
+  font-family: 'Patrick Hand', 'Courier New', Courier, monospace;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.todo__btn-submit, .todo__item {
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: inset 2px 2px 2px $glow, 2px 2px 2px $shadow;
+  font-family: 'Shrikhand', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: $base-lighter;
+  letter-spacing: 0.5rem;
+  text-shadow: 0px 0px 10px $base-darker;
+  margin-bottom: 1rem;
+}
+
+
+
+input::placeholder {
+  color: $completed;
+  font-size: 0.8rem;
+}
+
+input, .todo__item--completed {
+  box-shadow:2px 2px 2px $glow, inset 2px 2px 2px $shadow; 
+  background-color: $base-lighter;
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: 0;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+input:hover, .todo__btn-submit:hover, .todo__item:hover, .todo__item--completed:hover  {
+  box-shadow:2px 2px 2px $glow, inset 2px 2px 2px $shadow; 
+  background-color: $base; 
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+
+input:focus {
+  background-color: $completed-transparent;
+  color: $base;
+  text-shadow: 0px 0px 10px $glow;
+  outline: 0;
+}
+
+.todo__input-container {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__header__title {
+  font-family: 'Shrikhand', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.todo__title {
+  font-family: 'Shrikhand', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 0.1rem;
+  text-shadow: 0px 0px 10px $base-darker;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.todo__description {
+  font-family: 'Patrick Hand', 'Courier New', Courier, monospace;
+  letter-spacing: 0.1rem;
+  text-shadow: 0px 0px 10px $base-darker;
+}
+
+.todo__input {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.todo__item--completed {
+  text-decoration: line-through $base 2px;
+}
+
+.todo__item--completed * {
+  color: $completed;
+}
+
+.todo__item--completed > button {
+  color: $delete;
+}
+
+.todo__item__btn-delete {
+  background-color: $base-lighter;
+  border: none;
+  font-family: 'Patrick Hand', 'Courier New', Courier, monospace;
+  color: $completed;
+  cursor: pointer;
+}
+
+.todo__item__btn-delete:hover {
+  background-color: $base-lighter;
+  border: none;
+  font-family: 'Patrick Hand', 'Courier New', Courier, monospace;
+  color: $white;
+}
+
+.todo__item__btn-delete {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  background-color: $base;
+  border: solid 3px $delete;
+  z-index: 999;
+}
+
+.todo__item__btn-delete:hover {
+  background-color: $base;
+  border: solid 3px $glow-color;
+}
+
+.todo__item__btn-delete__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.todo__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  color: $glow-color;
+  font-family: 'Patrick Hand', 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  text-shadow: 0px 0px 5px $base-darker;
+}
+
+@-webkit-keyframes glow-min {
+  from {
+    text-shadow: 0 0 5px $base-darker, 0 0 10px $base-darker, 0 0 15px $glow-color, 0 0 20px $glow-color, 0 0 25px $glow-color, 0 0 30px $glow-color, 0 0 35px $glow-color;
+  }
+  to {
+    text-shadow: 0 0 15px $base-darker, 0 0 20px $glow-color, 0 0 25px $glow-color, 0 0 30px $glow-color, 0 0 35px $glow-color, 0 0 40px $glow-color, 0 0 45px $glow-color;
+  }
+}
